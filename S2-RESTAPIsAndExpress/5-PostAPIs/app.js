@@ -44,20 +44,21 @@ const loggerMiddleware = (req, res, next) =>  {
 app.use(loggerMiddleware);
     
 
-app.get('/', (req, res) => {
+app.get('/', (req, res, next) => {
     console.log(req);
-    res.send("Hello World!");
+    next('Hello World');
+    // res.send("Hello World!");
 })
 
 app.get('/api/v1/courses', (req, res) => { 
     console.log(req.query);
-    res.send(courses) 
+    // res.send(courses) 
 });
 
 
 app.get('/api/v1/courses/:courseId', (req, res) => { 
     const courseId = req.params.courseId;
-    res.send(courses[courseId]); 
+    // res.send(courses[courseId]); 
 });
 
 // * Create a course
@@ -75,6 +76,7 @@ app.post('/api/v1/courses', (req, res) => {
     res.send(tmpCourse);
 })
 
+app.use()
 
 
 
