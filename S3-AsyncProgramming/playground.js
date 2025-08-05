@@ -7,7 +7,7 @@ console.log('End');
 
 
 // Async Execution: Example 2
-
+/*
 const main = () => {
     console.log('Start');
 
@@ -28,3 +28,31 @@ const f1 = () => {
 
 
 main()
+
+*/
+
+const main = () => {
+    console.log('Start');
+    const start = Date.now();
+    
+    console.log('End');
+
+    setTimeout(() => {
+        for(let i=0; i < 100000; i++) {
+            console.log(i);
+        }
+    }, 999);
+    
+    setTimeout(() => {
+        console.log('In between');
+
+        console.log('Diff: ', Date.now() - start);
+    }, 1000);
+    
+} 
+
+
+
+
+main();
+
