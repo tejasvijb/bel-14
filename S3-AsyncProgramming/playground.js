@@ -1,58 +1,109 @@
-// Sync Execution: Example 1
-/*
-console.log('Start');
-console.log('In between');
-console.log('End');
-*/
+/* Limitations:
+1. Messy code leading tao callback hell
+2. Control? 
+*/ 
 
+// Promises
 
-// Async Execution: Example 2
-/*
-const main = () => {
-    console.log('Start');
-
-    setTimeout(() => {
-        console.log('In between');
-    }, 0);
-
-    f1();
-    
-    console.log('End');
-} 
-
-const f1 = () => {
-    setTimeout(() => {
-        console.log('In between 2');
-    }, 0);
+// Change this callback to promise
+const asyncFunction =  () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {  //T1
+            console.log('In between 1');
+            resolve("Processing Complete");
+        }, 1000)
+    })
 }
 
+const asyncFunction2 =  (input) => {
+    console.log(input);
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {  //T1
+            console.log('In between 2');
+            resolve("Processing Complete 2")
+        }, 2000)
+    });
+}
 
-main()
+const asyncFunction3 =  (input) => {
+    console.log(input);
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {  //T1
+            console.log('Processing Complete 3');
+            resolve()
+        }, 3000)
+    });
+}
 
-*/
-
-const main = () => {
-    console.log('Start');
-    const start = Date.now();
+const main = async () => {
+    console.log('Pre process');
     
-    console.log('End');
+    asyncFunction().then((val) => {
+        console.log("Internal value", val);
+        asyncFunction2().then(() => {
+            asyncFunction3().then(() => {
+                console.log("All Done");
+            })
+        }) 
+    })
 
-    setTimeout(() => {
-        for(let i=0; i < 100000; i++) {
-            console.log(i);
-        }
-    }, 999);
+    // Promise Chaining: Helps avoid Callback Hell
+    const responses = {
+        res1:  null,
+        res2: null,
+        res3: null
+    }
+
+    asyncFunction()
+        .then((val1) => {
+            console.log("Internal value", val1);
+            return asyncFunction2(val1)
+        })
+        .then((val2) => asyncFunction3(val2))
+        .then(() => {
+            console.log("All Done")
+        })
+        .catch(e => console.log(e));
+
+
+
+
+    // const response =  asyncFunction();
+
+    // const res2  = response.then(asyncFunction2);
+
+    // const res3 = res2.then(asyncFunction3);
+
+    // console.log(response);
+    // console.log(res2);
+
+    // console.log(res3);
+
+
+    // response
+    //     .then(() => {
+    //         console.log("Promise called succesfully");
+    //     })
+    //     .catch(() => {
+    //         console.log("Promise rejected succesfully");
+    //     })
     
-    setTimeout(() => {
-        console.log('In between');
+    // console.log(response);
 
-        console.log('Diff: ', Date.now() - start);
-    }, 1000);
+
+    // asyncFunction().then(() => {
+    //     console.log("Execution Complete");
+    // }).catch(() => {
+    //     console.log("There was an error");
+    // })
+
     
-} 
-
-
-
+    // resolveWithValue.then((returnedValue) => console.log(returnedValue));
+    console.log("Main completes");
+}
 
 main();
+
+
+
 
