@@ -76,3 +76,4 @@ Promise.resolve().then(() => {  // P1
 })
 
 console.log("Main script");
+
