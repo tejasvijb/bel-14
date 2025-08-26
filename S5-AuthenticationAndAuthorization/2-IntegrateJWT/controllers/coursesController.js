@@ -1,11 +1,5 @@
 const {courses} = require('../models/coursesModel');
 
-
-
-
-
-
-
 const getAllCourses = (req, res) => {    
     if (!req.user.role) {
         res.status(400).send("Should have some role")
