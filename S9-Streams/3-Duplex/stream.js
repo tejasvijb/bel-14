@@ -3,8 +3,7 @@ const { Duplex } = require('stream');
 // Custom Duplex Stream for each client
 class ClientDuplexStream extends Duplex {
  
- 
-  constructor(socket) {
+   constructor(socket) {
     super();
     this.socket = socket;
     this.socket.on('data', (chunk) => this.push(chunk)); // Pipe data to readable side
