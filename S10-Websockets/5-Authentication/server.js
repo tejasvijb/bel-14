@@ -76,7 +76,7 @@ io.on('connection', (socket) => {
         }
 
         socket.join(room);
-        const lastMessages = chatrooms[room].slice(-50);
+        const lastMessages = chatrooms[room].slice(-50);    // Business logic dictates
         socket.emit('room-messages', lastMessages);
 
         const joinMessage = {
