@@ -36,32 +36,38 @@
 
 
 class Car {
-    #make;
+  #make;
 
 
-    constructor(make, model, year) {
-        this.#make = make;
-        this.model = model;
-        this.year = year;
-    }
+  constructor(make, model, year) {
+    this.#make = make;
+    this.model = model;
+    this.year = year;
+  }
 
-    #injectFuel = () => {
-        console.log(`${this.#make} ${this.model} is injecting fuel`);
-        
-    }
+  #injectFuel = () => {
+    console.log(`${this.#make} ${this.model} is injecting fuel`);
 
-    start = function(){
-        this.#injectFuel();
-        console.log(`${this.#make} ${this.model} is starting`);
-    }
-} 
+  }
+
+  start = function () {
+    this.#injectFuel();
+    console.log(`${this.#make} ${this.model} ${this.year} is starting`);
+  }
+}
+
+
+
 
 const tata = new Car("Tata", "Nexon", 2020);
 
-// tata.#make = "Maruti";
-tata.#injectFuel = () => {
-    console.log("System has been hacked");
-}
+tata.year = 2023;
 tata.start();
+
+// // tata.#make = "Maruti";
+// tata.#injectFuel = () => {
+//     console.log("System has been hacked");
+// }
+// tata.start();
 
 
