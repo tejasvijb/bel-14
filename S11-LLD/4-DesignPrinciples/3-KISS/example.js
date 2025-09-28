@@ -36,7 +36,9 @@ const processOrderKISS = (order) => {
         order.cancel();
         return;
     }
+    
     processItems(order.getItems());
+    
     order.confirm();
 }
 

@@ -34,6 +34,8 @@ class LakeDuck extends Duck {
 }
 
 
+// Fragile Base Class Problem
+
 class RubberDuck extends Duck {
     constructor(name) {
         super(name);
@@ -49,7 +51,8 @@ class RubberDuck extends Duck {
     swim() {
         throw new Error("Rubber ducks can't swim");
     }
-    
+
 }
+
 
 

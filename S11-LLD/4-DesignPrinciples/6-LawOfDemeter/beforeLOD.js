@@ -9,6 +9,10 @@ class Address {
     }
 }
 
+
+// Initially, responsibility to keep the address which implicitly meant currentAdress
+// Added new capability whereIn permanent address was added as a new feature
+
 class Customer {
     constructor(name, permanentAddress, currentAddress) {
         this.name = name;

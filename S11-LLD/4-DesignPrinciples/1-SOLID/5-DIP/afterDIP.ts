@@ -35,3 +35,5 @@ const maruti = new Car(petrolEngine);
 maruti.drive();
 
 // violation of Dependency Inversion Principle
+
+// Dependency Inversion is achieved by Dependency Injection
