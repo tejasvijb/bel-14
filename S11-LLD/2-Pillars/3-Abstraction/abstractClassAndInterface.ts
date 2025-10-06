@@ -81,11 +81,25 @@ abstract class Vehicle {
   abstract sail(): void;
 }
 
-// class DieselCar extends Vehicle {
-//     start(): void {
-//         console.log(`My Car: ${this.make} ${this.model} is starting up`);
-//     }
-// }
+
+class DieselCar extends Vehicle {
+  start(): void {
+    console.log(`My Car: ${this.make} ${this.model} is starting up`);
+  }
+
+  fly(): void {
+    console.log(`My Car: ${this.make} ${this.model} is flying`);
+  }
+
+  sail(): void {
+    console.log(`My Car: ${this.make} ${this.model} is sailing`);
+  }
+
+}
+
+
+const myDieselCar = new DieselCar("Toyota", "Corolla");
+myDieselCar.stop();
 
 
 

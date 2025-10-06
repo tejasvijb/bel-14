@@ -1,30 +1,30 @@
 // interface Engine {
-//     start(): void;
+//   start(): void;
 // }
 
 // // Low level module
-// class PetrolEngine  implements Engine {
-//     start() {
-//         console.log('Petrol engine started');
-//     }
+// class PetrolEngine implements Engine {
+//   start() {
+//     console.log('Petrol engine started');
+//   }
 // }
 
 
-// // High level module
-// class Car {
-//     private engine: Engine;
+// High level module
+// class NewCar {
+//   private engine: Engine;
 
-//     constructor() {
-//         this.engine = new PetrolEngine();
-//     }
+//   constructor() {
+//     this.engine = new PetrolEngine();
+//   }
 
-//     drive() {
-//         this.engine.start();
-//         console.log('Car is driving');
-//     }
+//   drive() {
+//     this.engine.start();
+//     console.log('Car is driving');
+//   }
 // }
 
-// const maruti = new Car();
+// const maruti = new NewCar();
 // maruti.drive();
 
 // // violation of Dependency Inversion Principle
